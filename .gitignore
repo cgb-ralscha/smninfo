@@ -1,0 +1,8 @@
+/target/
+/.settings/
+/.classpath
+/.factorypath
+/.project
+/app.log
+/.apt_generated/
+/xodus/
