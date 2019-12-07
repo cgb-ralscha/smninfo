@@ -165,6 +165,17 @@ public class ImportData implements ApplicationRunner {
 			dp.setTemperature(row[9] != null ? Double.valueOf(row[9]) : null);
 			dp.setWindDirection(row[10] != null ? Integer.valueOf(row[10]) : null);
 			dp.setWindSpeed(row[11] != null ? Double.valueOf(row[11]) : null);
+			dp.setGlobalRadiation(row[12] != null ? Double.valueOf(row[12]) : null);
+			dp.setDewPoint(row[13] != null ? Double.valueOf(row[13]) : null);
+			dp.setGeoPotentialHeight850(row[14] != null ? Double.valueOf(row[14]) : null);
+			dp.setGeoPotentialHeight700(row[15] != null ? Double.valueOf(row[15]) : null);
+			dp.setWindDirectionTool(row[16] != null ? Double.valueOf(row[16]) : null);
+			dp.setWindSpeedTower(row[17] != null ? Double.valueOf(row[17]) : null);
+			dp.setGustPeakTower(row[18] != null ? Double.valueOf(row[18]) : null);
+			dp.setAirTemperatureTool(row[19] != null ? Double.valueOf(row[19]) : null);
+			dp.setRelAirHumidityTower(row[20] != null ? Double.valueOf(row[20]) : null);
+			dp.setDewPointTower(row[21] != null ? Double.valueOf(row[21]) : null);
+
 			dps.add(dp);
 			i++;
 
@@ -212,7 +223,11 @@ public class ImportData implements ApplicationRunner {
 						writer.writeHeaders("code", "dateTime", "gustPeak", "humidity",
 								"precipitation", "qfePressure", "qffPressure",
 								"qnhPressure", "sunshine", "temperature", "windDirection",
-								"windSpeed");
+								"windSpeed", "globalRadiation", "dewPoint",
+								"geoPotentialHeight850", "geoPotentialHeight700",
+								"windDirectionTool", "windSpeedTower", "gustPeakTower",
+								"airTemperatureTool", "relAirHumidityTower",
+								"dewPointTower");
 
 						for (Entity e : txn.sort("datapoint", ExodusManager.EPOCH_SECONDS,
 								txn.sort("datapoint", ExodusManager.CODE, true), true)) {
@@ -230,6 +245,22 @@ public class ImportData implements ApplicationRunner {
 							Integer humidity = getProperty(e, "humidity");
 							Double qfePressure = getProperty(e, "qfePressure");
 							Double qffPressure = getProperty(e, "qffPressure");
+
+							Double globalRadiation = getProperty(e, "globalRadiation");
+							Double dewPoint = getProperty(e, "dewPoint");
+							Double geoPotentialHeight850 = getProperty(e,
+									"geoPotentialHeight850");
+							Double geoPotentialHeight700 = getProperty(e,
+									"geoPotentialHeight700");
+							Double windDirectionTool = getProperty(e,
+									"windDirectionTool");
+							Double windSpeedTower = getProperty(e, "windSpeedTower");
+							Double gustPeakTower = getProperty(e, "gustPeakTower");
+							Double airTemperatureTool = getProperty(e,
+									"airTemperatureTool");
+							Double relAirHumidityTower = getProperty(e,
+									"relAirHumidityTower");
+							Double dewPointTower = getProperty(e, "dewPointTower");
 
 							String dateTime = OffsetDateTime
 									.ofInstant(Instant.ofEpochSecond(epochSeconds),
@@ -258,7 +289,39 @@ public class ImportData implements ApplicationRunner {
 											: null,
 									windDirection,
 									windSpeed != null ? decimalFormat.format(windSpeed)
-											: null);
+											: null,
+
+									globalRadiation != null
+											? decimalFormat.format(globalRadiation)
+											: null,
+									dewPoint != null ? decimalFormat.format(dewPoint)
+											: null,
+									geoPotentialHeight850 != null
+											? decimalFormat.format(geoPotentialHeight850)
+											: null,
+									geoPotentialHeight700 != null
+											? decimalFormat.format(geoPotentialHeight700)
+											: null,
+									windDirectionTool != null
+											? decimalFormat.format(windDirectionTool)
+											: null,
+									windSpeedTower != null
+											? decimalFormat.format(windSpeedTower)
+											: null,
+									gustPeakTower != null
+											? decimalFormat.format(gustPeakTower)
+											: null,
+									airTemperatureTool != null
+											? decimalFormat.format(airTemperatureTool)
+											: null,
+									relAirHumidityTower != null
+											? decimalFormat.format(relAirHumidityTower)
+											: null,
+									dewPointTower != null
+											? decimalFormat.format(dewPointTower)
+											: null
+
+				);
 						}
 
 						writer.flush();
@@ -307,6 +370,22 @@ public class ImportData implements ApplicationRunner {
 							Double qfePressure = getProperty(e, "qfePressure");
 							Double qffPressure = getProperty(e, "qffPressure");
 
+							Double globalRadiation = getProperty(e, "globalRadiation");
+							Double dewPoint = getProperty(e, "dewPoint");
+							Double geoPotentialHeight850 = getProperty(e,
+									"geoPotentialHeight850");
+							Double geoPotentialHeight700 = getProperty(e,
+									"geoPotentialHeight700");
+							Double windDirectionTool = getProperty(e,
+									"windDirectionTool");
+							Double windSpeedTower = getProperty(e, "windSpeedTower");
+							Double gustPeakTower = getProperty(e, "gustPeakTower");
+							Double airTemperatureTool = getProperty(e,
+									"airTemperatureTool");
+							Double relAirHumidityTower = getProperty(e,
+									"relAirHumidityTower");
+							Double dewPointTower = getProperty(e, "dewPointTower");
+
 							String dateTime = OffsetDateTime
 									.ofInstant(Instant.ofEpochSecond(epochSeconds),
 											ZoneOffset.UTC)
@@ -334,6 +413,35 @@ public class ImportData implements ApplicationRunner {
 											: null,
 									windDirection,
 									windSpeed != null ? decimalFormat.format(windSpeed)
+											: null,
+									globalRadiation != null
+											? decimalFormat.format(globalRadiation)
+											: null,
+									dewPoint != null ? decimalFormat.format(dewPoint)
+											: null,
+									geoPotentialHeight850 != null
+											? decimalFormat.format(geoPotentialHeight850)
+											: null,
+									geoPotentialHeight700 != null
+											? decimalFormat.format(geoPotentialHeight700)
+											: null,
+									windDirectionTool != null
+											? decimalFormat.format(windDirectionTool)
+											: null,
+									windSpeedTower != null
+											? decimalFormat.format(windSpeedTower)
+											: null,
+									gustPeakTower != null
+											? decimalFormat.format(gustPeakTower)
+											: null,
+									airTemperatureTool != null
+											? decimalFormat.format(airTemperatureTool)
+											: null,
+									relAirHumidityTower != null
+											? decimalFormat.format(relAirHumidityTower)
+											: null,
+									dewPointTower != null
+											? decimalFormat.format(dewPointTower)
 											: null);
 						}
 
@@ -345,7 +453,6 @@ public class ImportData implements ApplicationRunner {
 					}
 
 				});
-		// TODO Auto-generated method stub
 
 	}
 

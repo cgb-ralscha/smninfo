@@ -10,17 +10,6 @@ import jetbrains.exodus.entitystore.Entity;
 
 public class DataPoint {
 
-//	gre000z0
-//	tde200s0	
-//	ppz850s0
-//	ppz700s0
-//	dv1towz0
-//	fu3towz0
-//	fu3towz1
-//	ta1tows0
-//	uretows0
-//	tdetows0
-	
 	@Parsed(field = "stn")
 	private String code;
 
@@ -99,6 +88,75 @@ public class DataPoint {
 	@NullString(nulls = "-")
 	private Double qffPressure;
 
+	/**
+	 * W/m²: Global radiation; ten minutes mean
+	 */
+	@Parsed(field = "gre000z0")
+	@NullString(nulls = "-")
+	private Double globalRadiation;
+
+	/**
+	 * °C: Dew point 2 m above ground; current value
+	 */
+	@Parsed(field = "tde200s0")
+	@NullString(nulls = "-")
+	private Double dewPoint;
+
+	/**
+	 * gpm: geopotential height of the 850 hPa-surface; current value
+	 */
+	@Parsed(field = "ppz850s0")
+	@NullString(nulls = "-")
+	private Double geoPotentialHeight850;
+	/**
+	 * gpm: geopotential height of the 700 hPa-surface; current value
+	 */
+	@Parsed(field = "ppz700s0")
+	@NullString(nulls = "-")
+	private Double geoPotentialHeight700;
+
+	/**
+	 * °: Wind direction vectoriel; ten minutes interval; tool 1
+	 */
+	@Parsed(field = "dv1towz0")
+	@NullString(nulls = "-")
+	private Double windDirectionTool;
+
+	/**
+	 * km/h: Wind speed tower; ten minutes mean
+	 */
+	@Parsed(field = "fu3towz0")
+	@NullString(nulls = "-")
+	private Double windSpeedTower;
+
+	/**
+	 * km/h: Gust peak (one second) tower; maximum
+	 */
+	@Parsed(field = "fu3towz1")
+	@NullString(nulls = "-")
+	private Double gustPeakTower;
+
+	/**
+	 * °C: Air temperature tool 1
+	 */
+	@Parsed(field = "ta1tows0")
+	@NullString(nulls = "-")
+	private Double airTemperatureTool;
+
+	/**
+	 * %: Relative air humidity tower; current value
+	 */
+	@Parsed(field = "uretows0")
+	@NullString(nulls = "-")
+	private Double relAirHumidityTower;
+
+	/**
+	 * °C : Dew point tower
+	 */
+	@Parsed(field = "tdetows0")
+	@NullString(nulls = "-")
+	private Double dewPointTower;
+
 	public DataPoint() {
 		// default constructor
 	}
@@ -116,6 +174,16 @@ public class DataPoint {
 		this.humidity = getProperty(e, "humidity");
 		this.qfePressure = getProperty(e, "qfePressure");
 		this.qffPressure = getProperty(e, "qffPressure");
+		this.globalRadiation = getProperty(e, "globalRadiation");
+		this.dewPoint = getProperty(e, "dewPoint");
+		this.geoPotentialHeight850 = getProperty(e, "geoPotentialHeight850");
+		this.geoPotentialHeight700 = getProperty(e, "geoPotentialHeight700");
+		this.windDirectionTool = getProperty(e, "windDirectionTool");
+		this.windSpeedTower = getProperty(e, "windSpeedTower");
+		this.gustPeakTower = getProperty(e, "gustPeakTower");
+		this.airTemperatureTool = getProperty(e, "airTemperatureTool");
+		this.relAirHumidityTower = getProperty(e, "relAirHumidityTower");
+		this.dewPointTower = getProperty(e, "dewPointTower");
 	}
 
 	private static <T> T getProperty(Entity e, String propertyName) {
@@ -165,6 +233,47 @@ public class DataPoint {
 		if (getQffPressure() != null) {
 			e.setProperty("qffPressure", getQffPressure());
 		}
+
+		if (getGlobalRadiation() != null) {
+			e.setProperty("globalRadiation", getGlobalRadiation());
+		}
+
+		if (getDewPoint() != null) {
+			e.setProperty("dewPoint", getDewPoint());
+		}
+
+		if (getGeoPotentialHeight850() != null) {
+			e.setProperty("geoPotentialHeight850", getGeoPotentialHeight850());
+		}
+
+		if (getGeoPotentialHeight700() != null) {
+			e.setProperty("geoPotentialHeight700", getGeoPotentialHeight700());
+		}
+
+		if (getWindDirectionTool() != null) {
+			e.setProperty("windDirectionTool", getWindDirectionTool());
+		}
+
+		if (getWindSpeedTower() != null) {
+			e.setProperty("windSpeedTower", getWindSpeedTower());
+		}
+
+		if (getGustPeakTower() != null) {
+			e.setProperty("gustPeakTower", getGustPeakTower());
+		}
+
+		if (getAirTemperatureTool() != null) {
+			e.setProperty("airTemperatureTool", getAirTemperatureTool());
+		}
+
+		if (getRelAirHumidityTower() != null) {
+			e.setProperty("relAirHumidityTower", getRelAirHumidityTower());
+		}
+
+		if (getDewPointTower() != null) {
+			e.setProperty("dewPointTower", getDewPointTower());
+		}
+
 	}
 
 	public String getCode() {
@@ -261,6 +370,86 @@ public class DataPoint {
 
 	public void setQffPressure(Double qffPressure) {
 		this.qffPressure = qffPressure;
+	}
+
+	public Double getGlobalRadiation() {
+		return this.globalRadiation;
+	}
+
+	public void setGlobalRadiation(Double globalRadiation) {
+		this.globalRadiation = globalRadiation;
+	}
+
+	public Double getDewPoint() {
+		return this.dewPoint;
+	}
+
+	public void setDewPoint(Double dewPoint) {
+		this.dewPoint = dewPoint;
+	}
+
+	public Double getGeoPotentialHeight850() {
+		return this.geoPotentialHeight850;
+	}
+
+	public void setGeoPotentialHeight850(Double geoPotentialHeight850) {
+		this.geoPotentialHeight850 = geoPotentialHeight850;
+	}
+
+	public Double getGeoPotentialHeight700() {
+		return this.geoPotentialHeight700;
+	}
+
+	public void setGeoPotentialHeight700(Double geoPotentialHeight700) {
+		this.geoPotentialHeight700 = geoPotentialHeight700;
+	}
+
+	public Double getWindDirectionTool() {
+		return this.windDirectionTool;
+	}
+
+	public void setWindDirectionTool(Double windDirectionTool) {
+		this.windDirectionTool = windDirectionTool;
+	}
+
+	public Double getWindSpeedTower() {
+		return this.windSpeedTower;
+	}
+
+	public void setWindSpeedTower(Double windSpeedTower) {
+		this.windSpeedTower = windSpeedTower;
+	}
+
+	public Double getGustPeakTower() {
+		return this.gustPeakTower;
+	}
+
+	public void setGustPeakTower(Double gustPeakTower) {
+		this.gustPeakTower = gustPeakTower;
+	}
+
+	public Double getAirTemperatureTool() {
+		return this.airTemperatureTool;
+	}
+
+	public void setAirTemperatureTool(Double airTemperatureTool) {
+		this.airTemperatureTool = airTemperatureTool;
+	}
+
+	public Double getRelAirHumidityTower() {
+		return this.relAirHumidityTower;
+	}
+
+	public void setRelAirHumidityTower(Double relAirHumidityTower) {
+		this.relAirHumidityTower = relAirHumidityTower;
+	}
+
+	public Double getDewPointTower() {
+		return this.dewPointTower;
+	}
+
+	public void setDewPointTower(Double dewPointTower) {
+		this.dewPointTower = dewPointTower;
 	}
 
 	@Override
