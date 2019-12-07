@@ -2,6 +2,7 @@ package ch.rasc.smninfo.job;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,8 +119,8 @@ public class StationFetcher {
 		lng *= 100d / 36d;
 		lat *= 100d / 36d;
 
-		lng = BigDecimal.valueOf(lng).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
-		lat = BigDecimal.valueOf(lat).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
+		lng = BigDecimal.valueOf(lng).setScale(5, RoundingMode.HALF_UP).doubleValue();
+		lat = BigDecimal.valueOf(lat).setScale(5, RoundingMode.HALF_UP).doubleValue();
 
 		return new double[] { lng, lat };
 	}
