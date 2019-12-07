@@ -10,6 +10,17 @@ import jetbrains.exodus.entitystore.Entity;
 
 public class DataPoint {
 
+//	gre000z0
+//	tde200s0	
+//	ppz850s0
+//	ppz700s0
+//	dv1towz0
+//	fu3towz0
+//	fu3towz1
+//	ta1tows0
+//	uretows0
+//	tdetows0
+	
 	@Parsed(field = "stn")
 	private String code;
 

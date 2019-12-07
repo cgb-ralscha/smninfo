@@ -21,7 +21,7 @@ import okhttp3.ResponseBody;
 @Component
 public class DataPointFetcher {
 
-	private static final String SWISS_MET_NET_URL = "http://data.geo.admin.ch/ch.meteoschweiz.swissmetnet/VQHA69.csv";
+	private static final String SWISS_MET_NET_URL = "https://data.geo.admin.ch/ch.meteoschweiz.messwerte-aktuell/VQHA80.csv";
 
 	private final CsvParserSettings parserSettings;
 
@@ -37,7 +37,7 @@ public class DataPointFetcher {
 
 		this.parserSettings = new CsvParserSettings();
 		this.parserSettings.getFormat().setLineSeparator("\n");
-		this.parserSettings.getFormat().setDelimiter('|');
+		this.parserSettings.getFormat().setDelimiter(';');
 
 		this.parserSettings.setNumberOfRowsToSkip(2);
 		this.parserSettings.setHeaderExtractionEnabled(true);
