@@ -39,7 +39,7 @@ public class DataPointFetcher {
 		this.parserSettings.getFormat().setLineSeparator("\n");
 		this.parserSettings.getFormat().setDelimiter(';');
 
-		this.parserSettings.setNumberOfRowsToSkip(2);
+		// this.parserSettings.setNumberOfRowsToSkip(2);
 		this.parserSettings.setHeaderExtractionEnabled(true);
 		this.rowProcessor = new BeanListProcessor<>(DataPoint.class);
 		this.parserSettings.setProcessor(this.rowProcessor);

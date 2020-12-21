@@ -10,10 +10,10 @@ import jetbrains.exodus.entitystore.Entity;
 
 public class DataPoint {
 
-	@Parsed(field = "stn")
+	@Parsed(field = "Station/Location")
 	private String code;
 
-	@Parsed(field = "time")
+	@Parsed(field = "Date")
 	@Convert(conversionClass = EpochSecondsConversion.class)
 	private long epochSeconds;
 
@@ -29,7 +29,7 @@ public class DataPoint {
 	 */
 	@Parsed(field = "sre000z0")
 	@NullString(nulls = "-")
-	private Integer sunshine;
+	private Double sunshine;
 
 	/**
 	 * mm: Precipitation; ten minutes total
@@ -43,7 +43,7 @@ public class DataPoint {
 	 */
 	@Parsed(field = "dkl010z0")
 	@NullString(nulls = "-")
-	private Integer windDirection;
+	private Double windDirection;
 
 	/**
 	 * km/h: Wind speed; ten minutes mean
@@ -72,7 +72,7 @@ public class DataPoint {
 	 */
 	@Parsed(field = "ure200s0")
 	@NullString(nulls = "-")
-	private Integer humidity;
+	private Double humidity;
 
 	/**
 	 * hPa: Pressure at station level (QFE); current value
@@ -300,11 +300,11 @@ public class DataPoint {
 		this.temperature = temperature;
 	}
 
-	public Integer getSunshine() {
+	public Double getSunshine() {
 		return this.sunshine;
 	}
 
-	public void setSunshine(Integer sunshine) {
+	public void setSunshine(Double sunshine) {
 		this.sunshine = sunshine;
 	}
 
@@ -316,11 +316,11 @@ public class DataPoint {
 		this.precipitation = precipitation;
 	}
 
-	public Integer getWindDirection() {
+	public Double getWindDirection() {
 		return this.windDirection;
 	}
 
-	public void setWindDirection(Integer windDirection) {
+	public void setWindDirection(Double windDirection) {
 		this.windDirection = windDirection;
 	}
 
@@ -348,11 +348,11 @@ public class DataPoint {
 		this.gustPeak = gustPeak;
 	}
 
-	public Integer getHumidity() {
+	public Double getHumidity() {
 		return this.humidity;
 	}
 
-	public void setHumidity(Integer humidity) {
+	public void setHumidity(Double humidity) {
 		this.humidity = humidity;
 	}
 

@@ -156,14 +156,14 @@ public class ImportData implements ApplicationRunner {
 			dp.setCode(row[0]);
 			dp.setEpochSeconds(OffsetDateTime.parse(row[1]).toEpochSecond());
 			dp.setGustPeak(row[2] != null ? Double.valueOf(row[2]) : null);
-			dp.setHumidity(row[3] != null ? Integer.valueOf(row[3]) : null);
+			dp.setHumidity(row[3] != null ? Double.valueOf(row[3]) : null);
 			dp.setPrecipitation(row[4] != null ? Double.valueOf(row[4]) : null);
 			dp.setQfePressure(row[5] != null ? Double.valueOf(row[5]) : null);
 			dp.setQffPressure(row[6] != null ? Double.valueOf(row[6]) : null);
 			dp.setQnhPressure(row[7] != null ? Double.valueOf(row[7]) : null);
-			dp.setSunshine(row[8] != null ? Integer.valueOf(row[8]) : null);
+			dp.setSunshine(row[8] != null ? Double.valueOf(row[8]) : null);
 			dp.setTemperature(row[9] != null ? Double.valueOf(row[9]) : null);
-			dp.setWindDirection(row[10] != null ? Integer.valueOf(row[10]) : null);
+			dp.setWindDirection(row[10] != null ? Double.valueOf(row[10]) : null);
 			dp.setWindSpeed(row[11] != null ? Double.valueOf(row[11]) : null);
 			dp.setGlobalRadiation(row[12] != null ? Double.valueOf(row[12]) : null);
 			dp.setDewPoint(row[13] != null ? Double.valueOf(row[13]) : null);
