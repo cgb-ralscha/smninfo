@@ -236,13 +236,13 @@ public class ImportData implements ApplicationRunner {
 							long epochSeconds = getProperty(e,
 									ExodusManager.EPOCH_SECONDS);
 							Double temperature = getProperty(e, "temperature");
-							Integer sunshine = getProperty(e, "sunshine");
+							Double sunshine = getProperty(e, "sunshine");
 							Double precipitation = getProperty(e, "precipitation");
-							Integer windDirection = getProperty(e, "windDirection");
+							Double windDirection = getProperty(e, "windDirection");
 							Double windSpeed = getProperty(e, "windSpeed");
 							Double qnhPressure = getProperty(e, "qnhPressure");
 							Double gustPeak = getProperty(e, "gustPeak");
-							Integer humidity = getProperty(e, "humidity");
+							Double humidity = getProperty(e, "humidity");
 							Double qfePressure = getProperty(e, "qfePressure");
 							Double qffPressure = getProperty(e, "qffPressure");
 
